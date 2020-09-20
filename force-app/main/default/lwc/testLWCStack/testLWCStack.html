@@ -1,0 +1,20 @@
+<template>
+    <div class="container">
+        <p>activeSectionsMessage</p>
+        <h1>My Accordion</h1>
+        <lightning-accordion allow-multiple-sections-open={bAllowMultiple} onsectiontoggle={handleSectionToggle}>
+          <template for:each={contacts} for:item="contact">
+            <lightning-accordion-section key={contact.Id} name={contact.Name} label={contact.Name}>
+              <div class="slds-theme_default">
+                <p>
+                  {contact.phone}
+                </p>
+              </div>
+            </lightning-accordion-section>
+            <template if:true={contact.showPara}>
+                <p key={contact.Id}>{contact.label}</p>
+            </template>
+          </template>
+        </lightning-accordion>
+    </div>
+</template>
